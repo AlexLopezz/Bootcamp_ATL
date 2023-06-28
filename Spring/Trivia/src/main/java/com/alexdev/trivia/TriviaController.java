@@ -1,22 +1,27 @@
 package com.alexdev.trivia;
 
+import ch.qos.logback.core.net.ObjectWriter;
+import com.alexdev.trivia.clients.ChatGPTClient;
 import com.alexdev.trivia.models.Categoria;
 import com.alexdev.trivia.models.Pregunta;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class TriviaController {
     @GetMapping("/categories")
-    public List<Categoria> getCategories(){
-        return cargarCategorias();
+    public List<Categoria> getCategories() {
+        return loadCategories();
+
     }
 
-    private static List<Categoria> cargarCategorias() {
+    private static List<Categoria> loadCategories() {
         List<Categoria> categorias = new ArrayList<>();
 
         categorias.add(new Categoria(
@@ -47,19 +52,20 @@ public class TriviaController {
     }
 
     @GetMapping("/question/{categoria}")
-    public Pregunta getQuestion(@PathVariable String categoria) {
-        String[] opciones = {
-                "Cerveza, lima/limón, sal, chile en polvo, salsa tipo inglesa, picante",
-                "Cerveza, lima/limón y limon",
-                "Cerveza, sal, tabasco y lima/limón"
-        };
+    public String getQuestion(@PathVariable String categoria) throws IOException {
+        //var converter = new ObjectMapper();
+        var chatgpt = new ChatGPTClient();
+        var question = "Estoy desarrollando una trivia, necesito que realices una pregunta de "+categoria+" en formato JSON, de la siguiente manera: \n" +
+                "{\n" +
+                "\t\"category\": \"aca va el nombre de la categoria("+categoria+")\",\n" +
+                "        \"question\": \"aca va la pregunta acerca de la categoria\",\n" +
+                "        \"options\": \"aca va una lista de opciones, de nomas de 3 opciones la cual una de ellas tiene que ser la correcta\",\n" +
+                "        \"answer\": \"aca va la opcion correcta, en caso de ser la primera es el numero 0, en caso de ser la segunda es el numero 1, en caso de ser la segunda es el numero 2, en caso de ser la tercera es el numero 3\",\n" +
+                "        \"explanation\": \\\"aca va una pequeña explicacion, de por que la respuesta es correcta\"\n" +
+                "}";
 
-        return new Pregunta(
-                categoria,
-                "¿Qué ingredintes se necesitan para hacer una michelada?",
-                "La michelada, originaria de México, nacida de la creatividad y el deseo de refrescar, se convirtió en una popular bebida que cautivó a los amantes de la cerveza con su combinación única de sabores y su espíritu festivo.",
-                opciones,
-                0
-        );
+        return chatgpt.sendQuestion(question);
+         //converter.convertValue(responseGPT, Pregunta.class);
+
     }
 }

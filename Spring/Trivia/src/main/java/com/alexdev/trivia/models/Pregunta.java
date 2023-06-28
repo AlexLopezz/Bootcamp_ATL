@@ -1,60 +1,57 @@
 package com.alexdev.trivia.models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Pregunta {
-    private String categoria;
-    private String pregunta, explicacion;
-    private String[] opciones;
-    private int respuesta;
+    private String category;
+    private String question, explanation;
+    private String[] options;
+    private Integer answer;
 
-    public Pregunta(String categoria, String pregunta, String explicacion, String[] opciones, int respuesta) {
-        this.categoria = categoria;
-        this.pregunta = pregunta;
-        this.explicacion = explicacion;
-        this.opciones = opciones;
-        this.respuesta = respuesta;
+    public Pregunta(String category, String question, String explanation, String[] options, Integer answer) {
+        this.category = category;
+        this.question = question;
+        this.explanation = explanation;
+        this.options = options;
+        this.answer = answer;
     }
 
 
-    public String getCategoria() {
-        return categoria;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public String getPregunta() {
-        return pregunta;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setPregunta(String pregunta) {
-        this.pregunta = pregunta;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
-    public String getExplicacion() {
-        return explicacion;
+    public String getExplanation() {
+        return explanation;
     }
 
-    public void setExplicacion(String explicacion) {
-        this.explicacion = explicacion;
+    public void setExplanation(String explanation) {
+        this.explanation = explanation;
     }
 
-    public String[] getOpciones() {
-        return opciones;
+    public String[] getOptions() {
+        return options;
     }
 
-    public void setOpciones(String[] opciones) {
-        this.opciones = opciones;
+    public void setOptions(String[] options) {
+        this.options = options;
     }
 
-    public int getRespuesta() {
-        return respuesta;
+    public int getAnswer() {
+        return answer;
     }
 
-    public void setRespuesta(int respuesta) {
-        this.respuesta = respuesta;
+    public void setAnswer(int answer) {
+        this.answer = answer;
     }
 }
