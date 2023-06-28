@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AreaSquare/AreaSquare.iml" filepath="$PROJECT_DIR$/AreaSquare/AreaSquare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AreaTriangle/AreaTriangle.iml" filepath="$PROJECT_DIR$/AreaTriangle/AreaTriangle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GeneratePassword/GeneratePassword.iml" filepath="$PROJECT_DIR$/GeneratePassword/GeneratePassword.iml" />
+      <module fileurl="file://$PROJECT_DIR$/POO/POO.iml" filepath="$PROJECT_DIR$/POO/POO.iml" />
+    </modules>
+  </component>
+</project>
