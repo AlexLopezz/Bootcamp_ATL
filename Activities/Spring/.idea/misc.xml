@@ -7,6 +7,10 @@
         <option value="$PROJECT_DIR$/GestionUsuarios/pom.xml" />
         <option value="$PROJECT_DIR$/Trivia/pom.xml" />
         <option value="$PROJECT_DIR$/HelloWorld/pom.xml" />
+        <option value="$PROJECT_DIR$/1_BusquedaUsuarios/pom.xml" />
+        <option value="$PROJECT_DIR$/2_Autocomplete/pom.xml" />
+        <option value="$PROJECT_DIR$/3_GestionUsuarios/pom.xml" />
+        <option value="$PROJECT_DIR$/4_Trivia/pom.xml" />
       </list>
     </option>
   </component>

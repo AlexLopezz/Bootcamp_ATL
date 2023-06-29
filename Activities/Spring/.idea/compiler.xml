@@ -7,13 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="GestionUsuarios" />
+        <module name="Autocomplete" />
         <module name="trivia" />
+        <module name="1_BusquedaUsuarios" />
         <module name="bootcampATL" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="1_BusquedaUsuarios" options="-parameters" />
+      <module name="Autocomplete" options="-parameters" />
       <module name="GestionUsuarios" options="-parameters" />
       <module name="bootcampATL" options="-parameters" />
       <module name="trivia" options="-parameters" />
