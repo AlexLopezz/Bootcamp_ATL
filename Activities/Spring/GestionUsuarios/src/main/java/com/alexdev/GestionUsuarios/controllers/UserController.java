@@ -26,11 +26,11 @@ public class UserController {
     /**
      *  Este metodo agregara un nuevo usuario a la lista
      *  improvisada que se creo para para practicar CRUD.
-     * @param user Que se puede crear desde el front o desde PostMAN.
+     * @param usuario Que se puede crear desde el front o desde PostMAN.
      */
     @PostMapping("/api/usuarios")
-    public void addUser(@RequestBody Usuario user){ //@RequestBody se utiliza para desearializar un JSON a Objeto.
-        usuarios.add(user);
+    public void addUser(@RequestBody Usuario usuario){ //@RequestBody se utiliza para desearializar un JSON a Objeto.
+        usuarios.add(usuario);
     }
     
     /**
@@ -41,7 +41,6 @@ public class UserController {
     @DeleteMapping("/api/usuarios/{id}")
     public void deleteUser(@PathVariable int id){
         Optional<Usuario> usuarioEncontrado = findUser(id);
-
         usuarioEncontrado.ifPresent(usuario -> usuarios.remove(usuario));
     }
 
@@ -52,12 +51,17 @@ public class UserController {
      */
     @PutMapping("/api/usuarios")
     public void modifyUser(@RequestBody Usuario usuario){
-            if(findUser(usuario).isPresent()) {
+            if(usuarios.contains(usuario)) {
                 Usuario usuarioEncontrado = findUser(usuario).get();
                 int indexUser = usuarios.indexOf(usuarioEncontrado);
-                usuarios.set(indexUser, usuarioEncontrado);
+                usuarios.set(indexUser, usuario);
             }
     }
+
+
+
+    // UTILS:
+
     /**
      *  Este metodo cargara una lista improvisada con datos de
      *  usuarios para practicar CRUD.
