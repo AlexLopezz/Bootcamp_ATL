@@ -6,7 +6,7 @@ import Excercise1.models.Persona;
 import java.time.LocalDate;
 
 /*
-Ejercicio 1 y 2:
+Ejercicio 1 y 2: Estos ejercicios se relacionan.
 1) Vamos a crear una clase llamada Persona, sus atributos son:
     * id
     * nombre
